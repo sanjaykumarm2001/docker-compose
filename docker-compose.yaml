@@ -1,0 +1,47 @@
+version: "3"
+
+
+
+services:
+
+  website:
+
+    image: wordpress
+
+    ports:
+
+      - "8089:80"
+
+    depends_on:
+
+      - mysql
+
+    environment:
+
+      - WORDPRESS_DB_HOST=mysql
+
+      - WORDPRESS_DB_USER=root
+
+      - WORDPRESS_DB_PASSWORD=Sanjay2001@
+
+      - WORDPRESS_DB_NAME=wordpress
+
+
+
+  mysql:
+
+    image: "mysql:5.7"
+
+    environment:
+
+      - MYSQL_DATABASE=wordpress
+
+      - MYSQL_ROOT_PASSWORD=Sanjay2001@
+
+    volumes:
+
+      - ./mysql:/var/lib/mysql
+
+
+
+
